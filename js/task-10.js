@@ -1,6 +1,4 @@
 
-
-/// я не змогла зробити((
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
@@ -12,8 +10,8 @@ const destroyBtn = document.querySelector('[data-destroy]');
 const divBoxes = document.querySelector('#boxes');
 
 const setBoxes = () => {
-  amount = Number(input.value);
-  createBoxes()
+  const amount = Number(input.value);
+   createBoxes(amount);
 };
 
 const removeBoxes = () => {
@@ -26,9 +24,10 @@ destroyBtn.addEventListener('click', removeBoxes);
 function createBoxes(amount) {
   const firstSize = 30;
   for (let i= 0; i<=amount; i +=1) {
+    const size = firstSize+i*10;
    divBoxes.insertAdjacentHTML('beforeend',
-    `<div style='width: ${firstSize+i*10};
-   height: ${firstSize + i*10};
+    `<div style='width: ${size};
+   height: ${size};
    background-color: ${getRandomHexColor()};'></div`);
   }
 }
